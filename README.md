@@ -2,7 +2,7 @@
 
 The minesweeper game built to test using domonic and sanic.
 
-<img src="https://github.com/byteface/bombdisposer/blob/master/images/bigbomb.png" width="100%" height="auto"/>
+<img src="https://github.com/byteface/bombdisposer/blob/master/images/bigbomb.png" width="250px" height="auto"/>
 
 
 ##### setup
