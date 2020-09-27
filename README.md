@@ -14,6 +14,8 @@ The minesweeper game built to test using domonic and sanic.
 ##### running
     python bombdisposer.py
 
+you can then see it at: localhost:9000
+
 
 ## about
 

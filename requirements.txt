@@ -1,5 +1,5 @@
 
-domonic==0.2.10
+domonic==0.2.11
 sanic-session==0.7.3
 sanic==20.6.3
 numpy==1.19.2
