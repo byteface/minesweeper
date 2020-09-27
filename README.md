@@ -2,7 +2,7 @@
 
 The minesweeper game built to test using domonic and sanic.
 
-<img src="https://github.com/byteface/bomb-disposer/blob/master/images/bigbomb.png" width="100%" height="auto"/>
+<img src="https://github.com/byteface/bombdisposer/blob/master/images/bigbomb.png" width="100%" height="auto"/>
 
 
 ##### setup
@@ -30,7 +30,7 @@ The minesweeper game built to test using domonic and sanic.
     print(sys.getrecursionlimit())
     sys.setrecursionlimit(5000)
 
-<img src="https://github.com/byteface/bomb-disposer/blob/master/images/screenshot.png" width="100%" height="auto" />
+<img src="https://github.com/byteface/bombdisposer/blob/master/images/screenshot.png" width="100%" height="auto" />
 
 
 ## Notes
