@@ -2,9 +2,6 @@
 
 The classic minesweeper game, built to test domonic and fast-api
 
-<img src="https://github.com/byteface/minesweeper/blob/master/images/bigbomb.png" width="250px" height="auto"/>
-
-
 ##### setup
 
 ```
@@ -33,21 +30,3 @@ The classic minesweeper game, built to test domonic and fast-api
 ```
 
 <img src="https://github.com/byteface/minesweeper/blob/master/images/screenshot.png" width="100%" height="auto" />
-
-
-## Notes
-
-Still in dev. You may have to comment-out any 'say' commands which i use for testing...
-
-```
-    # from domonic.terminal import say
-    # say("something")
-```
-
-## Still todo
-
-- change cover from UI
-- change grid size from UI
-- timer
-- save best times
-- sfx
