@@ -82,7 +82,7 @@ app.add_middleware(InMemorySessionMiddleware, store=session_store)
 
 ASSETS = {
     "clear": "images/icons/clear.png",
-    "bomb": "images/icons/bomb.png",
+    "bomb": "images/icons/Minesweeper_1992.webp",
     "flag": "images/icons/flag.png",
 }
 
@@ -591,15 +591,21 @@ async def move(request: Request):
     print("Selected tile:", selected_tile)
 
     if game.state.game_over and not game.state.game_started:
+        print('game over!!!!')
+        # request.state.session.pop("game", None)
+        # response.set_cookie(key="session_id", value="", expires=0)
+        # return RedirectResponse(url="/")
         request.state.session.pop("game", None)
-        return RedirectResponse(url="/")
+        response = RedirectResponse(url="/")
+        response.set_cookie(key="session_id", value="", expires=0)
+        return response
     elif not game.state.game_started:
         game.start_game(selected_tile)
     else:
         r = game.remove_tiles(selected_tile)
         if r == "GameOver":
-            print("Game over")
-            return HTMLResponse("Game Over")
+            print("Game over2222")
+            # return HTMLResponse("Game Over")
 
     game.check_winner()
     game.update_tiles_state()
