@@ -113,7 +113,7 @@ class GameData:
 
 
 class Game(object):
-    """Bomb Disposer. The data is stored on a session"""
+    """Minesweeper. The data is stored on a session"""
 
     js_code = script(_type="text/javascript").html(
         """
@@ -183,11 +183,11 @@ class Game(object):
         self.mine_counter_txt = f"{self.state.mine_count:0>3}"
 
         instructions = [
-            h1("💥 Bomb Disposer 💥"),
+            h1("💥 Minesweeper 💥"),
             details(
                 summary("Instructions"),
                 p(
-                    "Uncover all the squares or mark all bombs with a flag to win. The game starts after you click on the first tile.",
+                    "Uncover all the squares or mark all mines with a flag to win. The game starts after you click on the first tile.",
                     _style="font-size:12px;",
                 ),
                 p(
@@ -654,4 +654,4 @@ async def play(request: Request):
 
 
 if __name__ == "__main__":
-    uvicorn.run("bombdisposer:app", host="0.0.0.0", port=9000, reload=True)
+    uvicorn.run("minesweeper:app", host="0.0.0.0", port=9000, reload=True)

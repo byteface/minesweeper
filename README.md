@@ -1,27 +1,25 @@
-# Bomb Disposer
+# Minesweeper
 
-The minesweeper game built to test using domonic and sanic.
+The classic minesweeper game, built to test domonic and fast-api
 
-<img src="https://github.com/byteface/bombdisposer/blob/master/images/bigbomb.png" width="250px" height="auto"/>
+<img src="https://github.com/byteface/minesweeper/blob/master/images/bigbomb.png" width="250px" height="auto"/>
 
 
 ##### setup
+
+```
 	python3 -m venv venv
 	. venv/bin/activate
 	python -m pip install -r requirements.txt
-
+```
 
 ##### running
-    python bombdisposer.py
 
-you can then see it at: localhost:9000
-
+```
+    python minesweeper.py
+```
 
 ## about
-
-- Test storing game data in a session.
-
-- The python metaclass dumps to a dict. So by using it as the model for all Game assets you can store game state. Here I do it on a session (which a user can see if they probe).
 
 - Decisions on users success are made on the server side aysnc.
 
@@ -29,19 +27,22 @@ you can then see it at: localhost:9000
 
 - If you make HUGE grid. Increase recursion limit at the top of the file. i.e
 
+```
     print(sys.getrecursionlimit())
     sys.setrecursionlimit(5000)
+```
 
-<img src="https://github.com/byteface/bombdisposer/blob/master/images/screenshot.png" width="100%" height="auto" />
+<img src="https://github.com/byteface/minesweeper/blob/master/images/screenshot.png" width="100%" height="auto" />
 
 
 ## Notes
 
 Still in dev. You may have to comment-out any 'say' commands which i use for testing...
 
+```
     # from domonic.terminal import say
     # say("something")
-
+```
 
 ## Still todo
 
@@ -50,4 +51,3 @@ Still in dev. You may have to comment-out any 'say' commands which i use for tes
 - timer
 - save best times
 - sfx
-- consider swap out numpy/sanic for something lighter. But not important for now.
