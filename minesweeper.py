@@ -287,29 +287,51 @@ class Game(object):
             tile.neighbouring_tiles = [n._id for n in neighbours]
             tile.neighbouring_mines = mines
 
+    # def find_neighbouring_tiles(self, target_tile):
+    #     """Find mine/non-mine neighbours as separate lists"""
+    #     neighbours = []  # 8-squares surrounding the target tile
+    #     offsets = [(-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1)]
+    #     the_index = target_tile.index  # Assume this is a tuple (row, col)
+
+    #     for offset in offsets:
+    #         neighbour_index = (
+    #             the_index[0] + offset[0],
+    #             the_index[1] + offset[1],
+    #         )  # Compute new index
+    #         row, col = neighbour_index
+    #         try:
+    #             if 0 <= row < len(self.tiles) and 0 <= col < len(
+    #                 self.tiles[0]
+    #             ):  # Check bounds
+    #                 neighbours.append(self.tiles[row][col])
+    #         except IndexError:  # Handle out-of-bounds errors
+    #             continue
+
+    #     # Count neighbouring mines
+    #     mines = sum(tile.has_mine for tile in neighbours)
+    #     return neighbours, mines
+
+
     def find_neighbouring_tiles(self, target_tile):
         """Find mine/non-mine neighbours as separate lists"""
         neighbours = []  # 8-squares surrounding the target tile
         offsets = [(-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1)]
         the_index = target_tile.index  # Assume this is a tuple (row, col)
 
+        num_rows = len(self.tiles)
+        num_cols = len(self.tiles[0])
+
         for offset in offsets:
-            neighbour_index = (
-                the_index[0] + offset[0],
-                the_index[1] + offset[1],
-            )  # Compute new index
-            row, col = neighbour_index
-            try:
-                if 0 <= row < len(self.tiles) and 0 <= col < len(
-                    self.tiles[0]
-                ):  # Check bounds
-                    neighbours.append(self.tiles[row][col])
-            except IndexError:  # Handle out-of-bounds errors
-                continue
+            row = the_index[0] + offset[0]
+            col = the_index[1] + offset[1]
+
+            if 0 <= row < num_rows and 0 <= col < num_cols:  # Check bounds
+                neighbours.append(self.tiles[row][col])
 
         # Count neighbouring mines
         mines = sum(tile.has_mine for tile in neighbours)
         return neighbours, mines
+
 
     def update_mine_counter(self):
         """Update the mine counter text"""
@@ -359,7 +381,10 @@ class Game(object):
 
         # tile is a mine
         if tile.has_mine:
-            say("You died")
+            try:
+                say("You died")
+            except Exception as e:
+                print("You died")
             tile.image_path = ASSETS["bomb"]
             tile.is_visible = True
             self.state.game_over = True
@@ -409,7 +434,10 @@ class Game(object):
         target = (SIZE * SIZE) - self.state.mine_count
         if not self.state.game_over and len(self.state.tiles_checked) == target:
             self.state.game_over = True
-            say("You won!")
+            try:
+                say("You won!")
+            except Exception as e:
+                print("You won")
             return True
         else:
             return False
@@ -478,7 +506,7 @@ class Tile(button, TileData, object):
         self.style.padding = "0px"
         self.style.margin = "0px"
         self.style.border = "none"
-        # self.style.borderStyle = "solid"
+        self.style.borderStyle = "solid"
         # self.style.borderColor = "black"
         # self.style.borderWidth = '0.5px'
 
